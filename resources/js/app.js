@@ -3,6 +3,7 @@ import '~resources/scss/app.scss';
 import * as bootstrap from 'bootstrap';
 import.meta.glob([
     '../img/**'
+
 ]);
 
 const deleteButton = document.querySelectorAll('.confirm-delete-movie[type="submit"]');

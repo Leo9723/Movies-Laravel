@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.app')
 @section('content')
 
@@ -47,5 +44,6 @@
     </div>
 
 </div>
+@include ('movies.delete')
 @endsection
 

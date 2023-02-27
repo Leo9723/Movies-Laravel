@@ -49,7 +49,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('comics.show', $newMovie->id);
+        return redirect()->route('movies.show', $newMovie->id);
     }
 
     /**
@@ -73,7 +73,9 @@ class MoviesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = Movie::find($id);
+
+        return view('movies.edit', compact('movie'));
     }
 
     /**
@@ -85,7 +87,21 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mvoie = Movie::findOrFail($id);
+        $request->validate([
+            'title' => 'required|max:50',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required|max:50',
+            'sale_date' => 'required',
+            'type' => 'required|max:50'
+        ]);
+        $form_data = $request->all();
+        
+        $movie->update($form_data); 
+
+        return redirect()->route('movies.show' , [ 'movie' => $movie -> id]);
     }
 
     /**
@@ -96,7 +112,10 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $movie->delete();
+
+        return redirect()->route('movies.index');
     }
 
     private function validation($data){
@@ -126,8 +145,5 @@ class MoviesController extends Controller
         )->validate();
 
         return $validator;
-
-
-
     }
 }
