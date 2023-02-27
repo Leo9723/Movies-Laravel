@@ -18,17 +18,17 @@
     }
 
     .position {
-        width: 80%;
+        width: 50%;
         margin: 0 auto;
 
         .view {
             border: 3px solid white;
             position: absolute;
-            top: -365px;
-            left: 0;
+            top: -105px;
+            right: 50px;
 
             img{
-                width: 200px;
+                width: 150px;
             }
 
             div {
@@ -55,15 +55,6 @@
 
     .title{
        color: rgba(0,63,94,255);
-    }
-
-    .advertisement {
-        text-align: end;
-        color: rgba(48,48,48,255);
-
-        .adv{
-            text-transform: uppercase;
-        }
     }
 
 }
