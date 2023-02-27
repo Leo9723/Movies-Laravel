@@ -87,7 +87,21 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mvoie = Movie::findOrFail($id);
+        $request->validate([
+            'title' => 'required|max:50',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required|max:50',
+            'sale_date' => 'required',
+            'type' => 'required|max:50'
+        ]);
+        $form_data = $request->all();
+        
+        $movie->update($form_data); 
+
+        return redirect()->route('movies.show' , [ 'movie' => $movie -> id]);
     }
 
     /**
