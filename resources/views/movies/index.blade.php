@@ -22,7 +22,7 @@
                                 <form action="{{route('movies.destroy', $item['id'])}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                <button class=" btn-link confirm-delete-movie" data-title="{{ $item->title }}"><i class="fa-solid fa-trash-can text-danger"></i></button>
+                                <button type="submit" class=" btn-link confirm-delete-movie" data-title="{{ $item->title }}"><i class="fa-solid fa-trash-can text-danger"></i></button>
                                 </form>
                             </div>
                           
@@ -44,6 +44,6 @@
     </div>
 
 </div>
-@include ('movies.delete')
+@include ('partials.model_delete')
 @endsection
 
