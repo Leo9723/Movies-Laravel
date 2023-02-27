@@ -96,7 +96,10 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $movie->delete();
+
+        return redirect()->route('movies.index');
     }
 
     private function validation($data){
@@ -126,8 +129,5 @@ class MoviesController extends Controller
         )->validate();
 
         return $validator;
-
-
-
     }
 }
