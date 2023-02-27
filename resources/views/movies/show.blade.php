@@ -21,18 +21,11 @@
                 <div class="green">
                     <div class="avaible col-7">
                         <span>Vote: <span class="text-white">{{ $movie['vote'] }}</span></span>
-                        <span>Avaiable</span>
-                    </div>
-                    <div class="check-avaible col-3">
-                        <span class="text-white">Check Availability</span>
                     </div>
                 </div>
                 <div class="col-10">
-                    <p>{{$movie['cast']}}</p>
+                    <p>Cast: {{$movie['cast']}}</p>
                 </div>
-            </div>
-            <div class="advertisement">
-                <span class="adv">Advertisement</span>
             </div>
         </div>
     </div>

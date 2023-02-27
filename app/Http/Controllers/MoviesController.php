@@ -87,7 +87,7 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mvoie = Movie::findOrFail($id);
+        $movie = Movie::findOrFail($id);
         $request->validate([
             'title' => 'required|max:50',
             'description' => 'required',
