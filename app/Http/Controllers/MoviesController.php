@@ -49,7 +49,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('comics.show', $newMovie->id);
+        return redirect()->route('movies.show', $newMovie->id);
     }
 
     /**
