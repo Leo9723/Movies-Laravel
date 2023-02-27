@@ -10,7 +10,7 @@
             <div class='col-12 py-5'>
                 <div class="row">
                     @foreach ($movies as  $item)
-                    <div class="card m-2" style="width: 18rem;">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="{{$item['cover_path']}}" class="card-img-top" alt="{{$item['title']}}">
                         <div class="card-body">
                             <h5 class="card-title text-danger">{{$item['original_title']}}</h5>
