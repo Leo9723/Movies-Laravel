@@ -10,6 +10,11 @@
                     {{session()->get('message')}}
                 </div>
                 @endif
+                @if (session()->has('deleteMessage'))
+                <div class="bg-danger p-4">
+                    {{session()->get('deleteMessage')}}
+                </div>
+                @endif
                 <div class="row">
                     @forelse ($movies as  $item)
                     <div class="card m-3" style="width: 18rem;">
