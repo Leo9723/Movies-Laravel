@@ -40,10 +40,7 @@ class MoviesController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        $form_data = $this->validation($request->all());
-
-
-        $movies = config('movies');
+        $form_data = $request->validated();
 
         $newMovie = new Movie();
 
@@ -51,7 +48,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('admin.movies.index', $newMovie->id)->with('message', 'Film aggiunto correttamente');
+        return redirect()->route('admin.movies.index')->with('message', 'Film aggiunto correttamente');
     }
 
     /**
@@ -60,10 +57,8 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie)
     {
-        $movie = Movie::find($id);
-
         return view('admin.movies.show', compact('movie'));
     }
 
@@ -73,10 +68,8 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        $movie = Movie::find($id);
-
         return view('admin.movies.edit', compact('movie'));
     }
 
@@ -87,14 +80,14 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMovieRequest $request, $id)
+    public function update(UpdateMovieRequest $request, $movie)
     {
-        $movie = Movie::findOrFail($id);
 
-        $form_data = $this->validation($request->all());
+        $movie = Movie::find($movie);
 
-        
-        $movie->update($form_data); 
+        $form_data = $request->validated();
+
+        $movie->update($form_data);
 
         return redirect()->route('admin.movies.index' , [ 'movie' => $movie -> id])->with('message', 'Film corretto correttamente');
     }

@@ -11,7 +11,7 @@
                 </div>
                 @endif
                 <div class="row">
-                    @foreach ($movies as  $item)
+                    @forelse ($movies as  $item)
                     <div class="card m-3" style="width: 18rem;">
                         <img src="{{$item['cover_path']}}" class="card-img-top" alt="{{$item['title']}}">
                         <div class="card-body">
@@ -33,7 +33,11 @@
                           
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div>
+                        <h1>Non ci sono film presenti</h1>
+                    </div>
+                    @endforelse
                     
                 </div>
                    

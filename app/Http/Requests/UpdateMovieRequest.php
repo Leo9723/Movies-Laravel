@@ -24,7 +24,7 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:150', 'unique'],
+            'title' => ['required', 'max:150', 'unique:movies'],
             'original_title' => ['required', 'max:150'],
             'nationality' => 'required|max:50',
             'release_date' => 'required|date_format:Y-m-d',
