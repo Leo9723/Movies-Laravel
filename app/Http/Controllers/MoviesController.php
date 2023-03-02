@@ -49,7 +49,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('admin.movies.index')->with('message', $newMovie->title.' aggiunto correttamente');
+        return redirect()->route('admin.movies.index')->with('message', $newMovie->title.' aggiunto con successo');
     }
 
     /**
