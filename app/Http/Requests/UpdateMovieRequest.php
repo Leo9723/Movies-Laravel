@@ -25,7 +25,7 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:150', Rule::unique('movies')->ignore($this->movie)],
+            'title' => ['required', 'max:150',Rule::unique('movies')->ignore($this->movie)],
             'original_title' => ['required', 'max:150'],
             'nationality' => 'required|max:50',
             'release_date' => 'required|date_format:Y-m-d',
@@ -38,6 +38,7 @@ class UpdateMovieRequest extends FormRequest
     {
         return [
             'title.required' => 'Il titolo è obbligatorio',
+            'title.unique' => 'Il titolo è già usato',
             'title.max' => 'Il titolo è superiore a :max caratteri',
             'original_title.required' => 'Il titolo originale è obbligatorio',
             'original_title.max' => 'Il titolo originale è superiore a :max caratteri',
