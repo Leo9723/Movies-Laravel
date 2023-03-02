@@ -20,7 +20,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <div id="app">
 
 

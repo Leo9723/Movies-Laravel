@@ -17,12 +17,12 @@ use App\Http\Controllers\MoviesController;
 */
 
 Route::get('/', function () {
-    return view('layouts.admin');
-})->name('home');
+    return view('welcome');
+})->name('welcome');
 
 
 Route::get('/admin', function () {
-    return view('welcome');
+    return view('layouts.admin');
 })->name('home');
 
 
