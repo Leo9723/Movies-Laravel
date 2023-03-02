@@ -37,7 +37,7 @@ class UpdateMovieRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Il titolo è obbligatorio',
+            'title.required' => 'Il titolo è obbligattorio',
             'title.unique' => 'Il titolo è già usato',
             'title.max' => 'Il titolo è superiore a :max caratteri',
             'original_title.required' => 'Il titolo originale è obbligatorio',
