@@ -49,7 +49,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('admin.movies.show', $newMovie->id);
+        return redirect()->route('admin.movies.index', $newMovie->id)->with('message', 'Film aggiunto correttamente');
     }
 
     /**
@@ -94,7 +94,7 @@ class MoviesController extends Controller
         
         $movie->update($form_data); 
 
-        return redirect()->route('admin.movies.show' , [ 'movie' => $movie -> id]);
+        return redirect()->route('admin.movies.index' , [ 'movie' => $movie -> id])->with('message', 'Film corretto correttamente');
     }
 
     /**
@@ -108,7 +108,7 @@ class MoviesController extends Controller
         $movie = Movie::findOrFail($id);
         $movie->delete();
 
-        return redirect()->route('admin.movies.index');
+        return redirect()->route('admin.movies.index')->with('message', 'Film Eliminato correttamente');
     }
 
     private function validation($data){

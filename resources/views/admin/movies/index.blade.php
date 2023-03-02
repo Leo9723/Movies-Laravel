@@ -5,6 +5,12 @@
     <div class='container'>
         <div class='row'>
             <div class='col-12 py-5'>
+                @if (session()->has('message'))
+                <div class="bg-success p-4">
+                    {{session()->get('message')}}
+                </div>
+                    
+                @endif
                 <div class="row">
                     @foreach ($movies as  $item)
                     <div class="card m-3" style="width: 18rem;">
