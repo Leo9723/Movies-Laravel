@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateMovieRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:150', 'unique:movies'],
+            'title' => ['required', 'max:150', Rule::unique('movies')->ignore('$this->movie')],
             'original_title' => ['required', 'max:150'],
             'nationality' => 'required|max:50',
             'release_date' => 'required|date_format:Y-m-d',
