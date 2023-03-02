@@ -27,7 +27,7 @@
     <label for="original_title">Inserisci il titolo originale:</label><br>
     <input type="text" name="original_title" id="original_title"  value="{{ old('original_title')  ?? $movie->original_title}}"><br>
     <div class="error">
-    @error('title')
+    @error('original_title')
     <div class="text-danger">
         {{ $message }}
     </div>
