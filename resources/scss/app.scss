@@ -1,9 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
-////////// SHOW //////////
 
 .blue{
-    background-color: rgba(2,130,249,255);
     height: 70px;
 }
 
@@ -24,7 +22,7 @@
         .view {
             border: 3px solid white;
             position: absolute;
-            top: -105px;
+            top: -50px;
             right: 50px;
 
             img{
