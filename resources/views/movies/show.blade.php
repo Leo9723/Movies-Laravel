@@ -9,8 +9,7 @@
         <div class="position">
             <div class="view">
                 <img class="thumb" src="{{ $movie['cover_path'] }}" alt="{{ $movie['title'] }}">
-                <div class="gallery">View Gallery</div>
-                <div class="fumetto">{{ $movie['vote'] }}</div>
+                <div class="fumetto">{{ $movie['title'] }}</div>
             </div>
         </div>
         <div class="d-flex">
@@ -32,16 +31,11 @@
     {{-- seizione inferiore --}}
     <div class="section-talent-specs">
         <div class="talent-and-specs">
-            <div class="talent col-5">
-                <h2>Talent</h2>
-                <p>Art by: <a href="/"> ... </a></p>
-                <p>Written by: <a href="/"> ... </a></p>
-            </div>
-            <div class="specs col-5">
-                <h2>Specs</h2>
+            <div class="talent col">
+                <h2>Other Info</h2>
                 <p>Original title: <a href="/">{{ $movie['original_title'] }}</a></p>
-                <p>Vote: {{ $movie['vote'] }}</p>
-                <p>Release date: {{ $movie['release_date'] }}</p> 
+                <p>Nationality: <a href="/">{{ $movie['nationality'] }}</a></p>
+                <p>Release date: {{ $movie['release_date'] }}</p>
             </div>
         </div>
     </div>

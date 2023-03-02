@@ -20,6 +20,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div id="app">
 
 
@@ -89,6 +90,11 @@
             @yield('content')
         </main>
     </div>
+=======
+    <main>
+        @yield('content')
+    </main>
+>>>>>>> 013dc07a80b4034bfd67ee6b59ad5cdd709540e6
 </body>
 
 </html>
