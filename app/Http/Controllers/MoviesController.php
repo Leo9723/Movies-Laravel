@@ -7,6 +7,7 @@ use App\Models\Movie;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MoviesController extends Controller
 {
@@ -89,7 +90,7 @@ class MoviesController extends Controller
 
         $movie->update($form_data);
 
-        return redirect()->route('admin.movies.index' , [ 'movie' => $movie -> id])->with('message', $movie->title.' corretto correttamente');
+        return redirect()->route('admin.movies.index')->with('message', $movie->title.' corretto correttamente');
     }
 
     /**
