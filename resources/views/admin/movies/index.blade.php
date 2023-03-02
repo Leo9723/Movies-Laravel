@@ -9,7 +9,6 @@
                 <div class="bg-success p-4">
                     {{session()->get('message')}}
                 </div>
-                    
                 @endif
                 <div class="row">
                     @foreach ($movies as  $item)
