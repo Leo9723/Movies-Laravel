@@ -75,7 +75,7 @@
     </div>
 
     <label for="title">Inserisci l'immagine:</label><br>
-    <input type="text" name="cover_path" id="cover_path" value="https://picsum.photos/200/300"  value="{{ old('cover_path')  ?? $movie->cover_path}}"><br>
+    <input type="text" name="cover_path" id="cover_path" value="{{ old('cover_path')  ?? $movie->cover_path}}"><br>
 
 
 
