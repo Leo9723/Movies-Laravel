@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 <div class="container-fluid">
@@ -17,9 +17,9 @@
                             <p class="card-text"><span class="fw-bold">Nazionalità:</span> {{$item['nationality']}}</p>
                             
                             <div class="mt-3 d-flex ">
-                                <a class=" btn-link " href="{{route('movies.show', $item['id'])}}"><i class="fa-solid fa-magnifying-glass text-success"></i></a>
-                                <a class="mx-2 btn-link " href="{{route('movies.edit', $item['id'])}}"><i class="fa-solid fa-pencil text-warning"></i></a>
-                                <form action="{{route('movies.destroy', $item['id'])}}" method="POST">
+                                <a class=" btn-link " href="{{route('admin.movies.show', $item['id'])}}"><i class="fa-solid fa-magnifying-glass text-success"></i></a>
+                                <a class="mx-2 btn-link " href="{{route('admin.movies.edit', $item['id'])}}"><i class="fa-solid fa-pencil text-warning"></i></a>
+                                <form action="{{route('admin.movies.destroy', $item['id'])}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                 <button type="submit" class=" btn-link confirm-delete-movie" data-title="{{ $item->title }}"><i class="fa-solid fa-trash-can text-danger"></i></button>
@@ -37,7 +37,7 @@
                 <div class="col-5">
                 </div>
                 <div class="col-5">
-                    <a class="text-light btn btn-primary"  href="{{route('movies.create')}}">AGGIUNGI NUOVO FILM</a>
+                    <a class="text-light btn btn-primary"  href="{{route('admin.movies.create')}}">AGGIUNGI NUOVO FILM</a>
                 </div>
             </div>
         </div>

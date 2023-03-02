@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 @endif
 
 <div class="form-cont">
-    <form action="{{ route('movies.store') }}" method="POST">
+    <form action="{{ route('admin.movies.store') }}" method="POST">
     @csrf
     <label for="title">Inserisci il titolo:</label><br>
     <input type="text" name="title" id="title"><br>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 @endif
 
 <div class="form-cont">
-    <form action="{{ route('movies.update', $movie->id) }}" method="POST">
+    <form action="{{ route('admin.movies.update', $movie->id) }}" method="POST">
     @csrf
     @method('PUT')
     <label for="title">Inserisci il titolo:</label><br>
@@ -75,12 +75,12 @@
     </div>
 
     <label for="title">Inserisci l'immagine:</label><br>
-    <input type="text" name="cover_path" id="cover_path" value="https://picsum.photos/200/300"  value="{{ old('cover_path')  ?? $movie->cover_path}}><br>
+    <input type="text" name="cover_path" id="cover_path" value="https://picsum.photos/200/300"  value="{{ old('cover_path')  ?? $movie->cover_path}}"><br>
 
 
 
+    <button type="submit">Invia</button>
     
-    <input type="submit" value="Invia" class="sub">
     
     
     </form>

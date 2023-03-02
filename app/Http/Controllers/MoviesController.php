@@ -17,7 +17,7 @@ class MoviesController extends Controller
     {
         $movies = Movie::all();
 
-        return view('movies.index', compact('movies'));
+        return view('admin.movies.index', compact('movies'));
     }
 
     /**
@@ -27,7 +27,7 @@ class MoviesController extends Controller
      */
     public function create()
     {
-        return view('movies.create');
+        return view('admin.movies.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('movies.show', $newMovie->id);
+        return redirect()->route('admin.movies.show', $newMovie->id);
     }
 
     /**
@@ -62,7 +62,7 @@ class MoviesController extends Controller
     {
         $movie = Movie::find($id);
 
-        return view('movies.show', compact('movie'));
+        return view('admin.movies.show', compact('movie'));
     }
 
     /**
@@ -75,7 +75,7 @@ class MoviesController extends Controller
     {
         $movie = Movie::find($id);
 
-        return view('movies.edit', compact('movie'));
+        return view('admin.movies.edit', compact('movie'));
     }
 
     /**
@@ -88,20 +88,13 @@ class MoviesController extends Controller
     public function update(Request $request, $id)
     {
         $movie = Movie::findOrFail($id);
-        $request->validate([
-            'title' => 'required|max:50',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required',
-            'series' => 'required|max:50',
-            'sale_date' => 'required',
-            'type' => 'required|max:50'
-        ]);
-        $form_data = $request->all();
+
+        $form_data = $this->validation($request->all());
+
         
         $movie->update($form_data); 
 
-        return redirect()->route('movies.show' , [ 'movie' => $movie -> id]);
+        return redirect()->route('admin.movies.show' , [ 'movie' => $movie -> id]);
     }
 
     /**
@@ -115,7 +108,7 @@ class MoviesController extends Controller
         $movie = Movie::findOrFail($id);
         $movie->delete();
 
-        return redirect()->route('movies.index');
+        return redirect()->route('admin.movies.index');
     }
 
     private function validation($data){
