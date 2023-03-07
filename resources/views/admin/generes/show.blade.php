@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2 class="py-3">Genere: {{ $genere->genre }}</h2>
+            <h2 class="py-3">Genere: {{ $genere->genere }}</h2>
             @if(session('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}    
@@ -26,21 +26,6 @@
             </div>
             <div>
                 <p>Slug: {{ $genere->slug }}</p>
-            </div>
-            <div class="col-12">
-                <h4>Post con questo genere: {{ count($genere->movie) }}</h4>
-                <div class="row">
-                    @forelse ($genere->movies as $movie)
-                    <div class="col-6">
-                        <div class="card text-center m-3 p-2 bg-dark text-light">
-                            <h4>{{ $genere->genre }}</h4>
-                            <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.show', $genere->slug) }}">Apri il post</a> 
-                        </div>    
-                    </div>                    
-                @empty
-                    <h6 class="text-center">Non ci sono posto per questa categoria</h6>
-                @endforelse
-                </div>               
             </div>
         </div>
     </div>

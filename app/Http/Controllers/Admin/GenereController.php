@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGenereRequest;
 use App\Http\Requests\UpdateGenereRequest;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class GenereController extends Controller
 {
     /**
@@ -98,11 +101,10 @@ class GenereController extends Controller
      * @param  \App\Models\Genere  $genere
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genere $slug)
+    public function destroy(Genere $genere)
     {
-        $genere = Genere::findOrFail($slug);
         $genere->delete();
 
-        return redirect()->route('admin.generes.index')->with('deleteMessage', $genere->genre.' Eliminato correttamente');
+        return redirect()->route('admin.generes.index')->with('message', 'La tipologia è stata cancellata con successo');
     }
 }

@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
 
     Route::resource('movies', MoviesController::class);
     Route::resource('casts', CastController::class);
-    Route::resource('generes', GenereController::class);
+    Route::resource('generes', GenereController::class)->parameters(['generes' => 'genere:slug']);
 
 
 });

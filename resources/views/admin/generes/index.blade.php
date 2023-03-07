@@ -23,7 +23,7 @@
                             <td>{{$genere->genere}}</td>
                             <td>{{$genere->slug}}</td>
                             <td>
-                                <a href="{{ route('admin.generes.show', ['genere' => $genere['slug']]) }}" title="Visualizza genere" class="btn btn-square btn-primary btn-sm">
+                                <a href="{{ route('admin.generes.show', $genere->slug) }}" title="Visualizza genere" class="btn btn-square btn-primary btn-sm">
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 <a href="{{ route('admin.generes.edit', ['genere' => $genere['slug']]) }}" title="Modifica genere" class="btn btn-square btn-warning btn-sm">
