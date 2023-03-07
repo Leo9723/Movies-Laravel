@@ -61,10 +61,21 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.generes.index' ? 'bg-secondary' : '' }}" href="{{route('admin.generes.index') }}">
+<<<<<<< HEAD
                                     <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Genres
                                 </a>
                             </li>
 
+=======
+                                    <i class="fa-solid fa-film"></i> Generes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.casts.index' ? 'bg-secondary' : '' }}" href="{{route('admin.casts.index') }}">
+                                    <i class="fa-solid fa-users"></i></i> Casts
+                                </a>
+                            </li>
+>>>>>>> fa22758e03750739c6bc21c78ca40b24aeef51e9
                         </ul>
 
 

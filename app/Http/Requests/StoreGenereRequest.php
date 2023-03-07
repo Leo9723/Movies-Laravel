@@ -13,7 +13,7 @@ class StoreGenereRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class StoreGenereRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'genere' => ['required', 'max:70', 'unique:generes'],
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'genere.required' => 'Il nome del genere è obbligatorio',
+            'genere.max' => 'Il nome del genere è superiore a :max caratteri',
         ];
     }
 }

@@ -16,7 +16,8 @@ class GenereController extends Controller
      */
     public function index()
     {
-        //
+        $generes = Genere::all();
+        return view('admin.generes.index', compact('generes'));
     }
 
     /**
@@ -26,7 +27,7 @@ class GenereController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.generes.create');
     }
 
     /**
@@ -37,7 +38,19 @@ class GenereController extends Controller
      */
     public function store(StoreGenereRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $newGenere = new Genere();
+
+        $slug = Genere::generateSlug($form_data['genere']);
+
+        $form_data['slug'] = $slug;
+
+        $newGenere->fill($form_data);
+
+        $newGenere->save();
+
+        return redirect()->route('admin.generes.index')->with('message', $newGenere->title.' aggiunto con successo');
     }
 
     /**
@@ -59,7 +72,7 @@ class GenereController extends Controller
      */
     public function edit(Genere $genere)
     {
-        //
+        return view('admin.generes.edit', compact('genere'));
     }
 
     /**
@@ -71,7 +84,12 @@ class GenereController extends Controller
      */
     public function update(UpdateGenereRequest $request, Genere $genere)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Genere::generateSlug($request->genere);
+        $form_data['slug']= $slug;
+        $genere->update($form_data);
+
+        return redirect()->route('admin.generes.index')->with('message', 'Progetto modificato correttamente');
     }
 
     /**

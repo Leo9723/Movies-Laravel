@@ -16,7 +16,8 @@ class CastController extends Controller
      */
     public function index()
     {
-        //
+        $casts = Cast::all();
+        return view('admin.casts.index', compact('casts'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CastController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.casts.create');
     }
 
     /**
@@ -37,7 +38,19 @@ class CastController extends Controller
      */
     public function store(StoreCastRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $newCast = new Cast();
+        
+        $slug = Cast::generateSlug($form_data['name_surname']);
+
+        $form_data['slug'] = $slug;
+
+        $newCast->fill($form_data);
+
+        $newCast->save();
+
+        return redirect()->route('admin.casts.index')->with('message', $newCast->title.' aggiunto con successo');
     }
 
     /**
@@ -59,7 +72,7 @@ class CastController extends Controller
      */
     public function edit(Cast $cast)
     {
-        //
+        return view('admin.casts.edit', compact('cast'));
     }
 
     /**
@@ -71,7 +84,12 @@ class CastController extends Controller
      */
     public function update(UpdateCastRequest $request, Cast $cast)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Cast::generateSlug($request->name_surname);
+        $form_data['slug']= $slug;
+        $cast->update($form_data);
+
+        return redirect()->route('admin.casts.index')->with('message', 'Progetto modificato correttamente');
     }
 
     /**

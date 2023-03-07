@@ -21,10 +21,8 @@ class CastSeeder extends Seeder
         foreach ($casts as $cast) {
             
             $newCast = new Cast();
-
             $newCast->name_surname = $cast;
             $newCast->slug = Str::slug($newCast->name_surname, '-');
-
             $newCast->save();
         }
     }
