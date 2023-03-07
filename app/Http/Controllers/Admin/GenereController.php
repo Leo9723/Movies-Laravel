@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Genere;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGenereRequest;
 use App\Http\Requests\UpdateGenereRequest;
 

@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\CastController;
+use App\Http\Controllers\Admin\GenereController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('movies', MoviesController::class);
+    Route::resource('casts', CastController::class);
+    Route::resource('generes', GenereController::class);
 
 
 });
