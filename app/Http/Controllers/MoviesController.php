@@ -92,6 +92,10 @@ class MoviesController extends Controller
 
         $movie->update($form_data);
 
+        if($request->has('casts')){
+            $movie->casts()->sync($request->casts);
+        }
+
         return redirect()->route('admin.movies.index')->with('message', $movie->title.' corretto correttamente');
     }
 
