@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('movies', MoviesController::class);
-    Route::resource('casts', CastController::class);
+    Route::resource('casts', CastController::class)->parameters(['casts' => 'cast:slug']);
     Route::resource('generes', GenereController::class)->parameters(['generes' => 'genere:slug']);
 
 
