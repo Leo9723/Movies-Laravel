@@ -12,5 +12,9 @@ class Cast extends Model
 
     protected $fillable = ['name_surname', 'slug'];
 
+    public function movies(){
+        return $this->belongsToMany(Movie::class);
+    }
+
 }
 
