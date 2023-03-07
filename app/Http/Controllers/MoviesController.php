@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Cast;
 use App\Models\Movie;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\StoreMovieRequest;
-use App\Http\Requests\UpdateMovieRequest;
+use App\Models\Genere;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreMovieRequest;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UpdateMovieRequest;
 
 class MoviesController extends Controller
 {
@@ -70,8 +72,10 @@ class MoviesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Movie $movie)
-    {
-        return view('admin.movies.edit', compact('movie'));
+    {   
+        $generes = Genere::all();
+        $casts = Cast::all();
+        return view('admin.movies.edit', compact('movie', 'generes','casts'));
     }
 
     /**
@@ -89,6 +93,10 @@ class MoviesController extends Controller
         $form_data = $request->validated();
 
         $movie->update($form_data);
+
+        if($request->has('casts')){
+            $movie->casts()->sync($request->casts);
+        }
 
         return redirect()->route('admin.movies.index')->with('message', $movie->title.' corretto correttamente');
     }

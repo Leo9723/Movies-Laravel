@@ -72,7 +72,7 @@ class CastController extends Controller
      */
     public function edit(Cast $cast)
     {
-        //
+        return view('admin.casts.edit', compact('cast'));
     }
 
     /**
@@ -84,7 +84,12 @@ class CastController extends Controller
      */
     public function update(UpdateCastRequest $request, Cast $cast)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Cast::generateSlug($request->name_surname);
+        $form_data['slug']= $slug;
+        $cast->update($form_data);
+
+        return redirect()->route('admin.casts.index')->with('message', 'Progetto modificato correttamente');
     }
 
     /**

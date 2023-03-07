@@ -72,7 +72,7 @@ class GenereController extends Controller
      */
     public function edit(Genere $genere)
     {
-        //
+        return view('admin.generes.edit', compact('genere'));
     }
 
     /**
@@ -84,7 +84,12 @@ class GenereController extends Controller
      */
     public function update(UpdateGenereRequest $request, Genere $genere)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Genere::generateSlug($request->genere);
+        $form_data['slug']= $slug;
+        $genere->update($form_data);
+
+        return redirect()->route('admin.generes.index')->with('message', 'Progetto modificato correttamente');
     }
 
     /**
