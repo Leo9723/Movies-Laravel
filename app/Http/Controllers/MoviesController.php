@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cast;
 use App\Models\Movie;
+use App\Models\Genere;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreMovieRequest;
@@ -71,9 +72,10 @@ class MoviesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Movie $movie)
-    {
+    {   
+        $generes = Genere::all();
         $casts = Cast::all();
-        return view('admin.movies.edit', compact('movie', 'casts'));
+        return view('admin.movies.edit', compact('movie', 'generes','casts'));
     }
 
     /**

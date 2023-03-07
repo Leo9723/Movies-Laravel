@@ -30,9 +30,9 @@ class UpdateMovieRequest extends FormRequest
             'nationality' => 'required|max:50',
             'release_date' => 'required|date_format:Y-m-d',
             'vote' => 'required|max:20',
-            'cast' => 'required',
             'cover_path' => 'nullable',
-            'cast_id' => 'exists:casts,id'
+            'cast_id' => 'exists:casts,id',
+            'genere_id' => 'exists:generes,id'
         ];
     }
     public function messages()
@@ -48,7 +48,6 @@ class UpdateMovieRequest extends FormRequest
             'release_date.required' => 'la data è obbligatoria',
             'release_date.date_format' => 'La data deve essere a :max caratteri',
             'vote.required' => 'Il voto è obbligatorio',
-            'cast.required' => 'Il cast è obbligatorio',
         ];
     }
 }

@@ -63,6 +63,15 @@
     </div>
         @enderror
     </div>
+    <div class="col-5">
+        <label class="control-label my-2 fw-bold">Genere</label>
+        <select class="form-control" name="genere_id" id="genere_id">
+            @foreach ($generes as $item )
+                <option value="{{$item->id}}" {{$item->id == old('genere_id', $movie->genere_id) ? 'selected' : ""}}>{{$item->genere}}</option>  
+            @endforeach
+        </select>
+
+    </div>
     <div class="f d-flex flex-column my-3">
         <label class="control-label my-2 fw-bold">Casts</label>
         <div class="d-flex flex-column">
