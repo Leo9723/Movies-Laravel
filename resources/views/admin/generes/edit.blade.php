@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row p-5">
             <div class="col-12">
-                <form action="{{route('admin.casts.update' , $cast->id)}}" method="POST">
+                <form action="{{route('admin.generes.update' , $genere->id)}}" method="POST">
                     @csrf
                     @method('PUT')
                         <div class="row">
@@ -23,8 +23,8 @@
                                         @error('name_surname')
                                             <p class="text-danger fw-bold">{{$message}}</p>
                                         @enderror
-                                        <label class="control-label mb-2 fw-bold ">Casts</label>
-                                        <input type="text" name="name_surname" class="form-control" placeholder="Inserisci il titolo" value="{{old('name') ?? $cast->name_surname}}">
+                                        <label class="control-label mb-2 fw-bold ">Genere</label>
+                                        <input type="text" name="genere" class="form-control" placeholder="Inserisci il titolo" value="{{old('name') ?? $genere->genere}}">
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,3 @@
 
 </div>
 @endsection
-
-
-
-

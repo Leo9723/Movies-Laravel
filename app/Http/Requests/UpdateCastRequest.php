@@ -24,7 +24,9 @@ class UpdateCastRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            
+            'name_surname' => ['required'],
+
         ];
     }
 }
