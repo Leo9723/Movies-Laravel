@@ -32,6 +32,7 @@ class UpdateMovieRequest extends FormRequest
             'vote' => 'required|max:20',
             'cast' => 'required',
             'cover_path' => 'nullable',
+            'cast_id' => 'exists:casts,id'
         ];
     }
     public function messages()
