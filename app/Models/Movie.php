@@ -11,4 +11,8 @@ class Movie extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'original_title', 'nationality', 'release_date', 'vote', 'cast', 'cover_path'];
+
+    public function genere(){
+        return $this->belongsTo(Genere::class);
+    }
 }
