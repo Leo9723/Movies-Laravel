@@ -48,7 +48,7 @@ class CastController extends Controller
      */
     public function show(Cast $cast)
     {
-        //
+        return view('admin.casts.show', compact('cast'));
     }
 
     /**
@@ -82,6 +82,9 @@ class CastController extends Controller
      */
     public function destroy(Cast $cast)
     {
-        //
+        $cast = Cast::findOrFail($cast);
+        $cast->delete();
+
+        return redirect()->route('admin.casts.index')->with('deleteMessage', $cast->name_surname.' Eliminato correttamente');
     }
 }
