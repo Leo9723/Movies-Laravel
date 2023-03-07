@@ -26,7 +26,7 @@ class GenereController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.generes.create');
     }
 
     /**
@@ -37,7 +37,19 @@ class GenereController extends Controller
      */
     public function store(StoreGenereRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $newGenere = new Genere();
+
+        $slug = Genere::generateSlug($form_data['genere']);
+
+        $form_data['slug'] = $slug;
+
+        $newGenere->fill($form_data);
+
+        $newGenere->save();
+
+        return redirect()->route('admin.generes.index')->with('message', $newGenere->title.' aggiunto con successo');
     }
 
     /**

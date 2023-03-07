@@ -13,7 +13,7 @@ class StoreCastRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class StoreCastRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_surname' => ['required', 'max:70', 'unique:casts'],
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name_surname.required' => 'Il nome del membro del cast è obbligatorio',
+            'name_surname.max' => 'Il nome del membro del cast è superiore a :max caratteri',
         ];
     }
 }
