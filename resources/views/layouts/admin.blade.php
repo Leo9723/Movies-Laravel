@@ -24,7 +24,6 @@
 
 <body>
     <div id="app">
-
         <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">BoolPress</a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
@@ -61,12 +60,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.generes.index' ? 'bg-secondary' : '' }}" href="{{route('admin.generes.index') }}">
-<<<<<<< HEAD
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Genres
-                                </a>
-                            </li>
-
-=======
                                     <i class="fa-solid fa-film"></i> Generes
                                 </a>
                             </li>
@@ -75,13 +68,9 @@
                                     <i class="fa-solid fa-users"></i></i> Casts
                                 </a>
                             </li>
->>>>>>> fa22758e03750739c6bc21c78ca40b24aeef51e9
                         </ul>
-
-
                     </div>
                 </nav>
-
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     @yield('content')
                 </main>
