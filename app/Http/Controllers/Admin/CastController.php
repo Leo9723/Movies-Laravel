@@ -16,7 +16,8 @@ class CastController extends Controller
      */
     public function index()
     {
-        //
+        $casts = Cast::all();
+        return view('admin.casts.index', compact('casts'));
     }
 
     /**

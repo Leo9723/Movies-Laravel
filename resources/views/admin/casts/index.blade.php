@@ -5,7 +5,7 @@
         <div class="col-12 my-5">
             <div class="d-flex justify-content-between">
                 <div>
-                    <h2>Elenco Genere</h2>
+                    <h2>Elenco Cast</h2>
                 </div>
             </div>
         </div>
@@ -13,20 +13,20 @@
             <table class="table table-striped">
                 <thead>
                     <th>Id</th>
-                    <th>Genere</th>
+                    <th>name_surname</th>
                     <th>Slug</th>
                 </thead>
-                @forelse($generes as $genere)
+                @forelse($casts as $cast)
                     <tbody>
                         <tr>
-                            <td>{{$genere->id}}</td>
-                            <td>{{$genere->genere}}</td>
-                            <td>{{$genere->slug}}</td>
+                            <td>{{$cast->id}}</td>
+                            <td>{{$cast->name_surname}}</td>
+                            <td>{{$cast->slug}}</td>
                         </tr>
                     </tbody>
                 @empty
                 <div>
-                    <h1>Non ci sono generi presenti</h1>
+                    <h1>Non ci sono cast presenti</h1>
                 </div>
                 @endforelse
             </table>
