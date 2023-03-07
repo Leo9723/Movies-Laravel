@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Cast;
 use App\Models\Movie;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\StoreMovieRequest;
-use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreMovieRequest;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UpdateMovieRequest;
 
 class MoviesController extends Controller
 {
@@ -71,7 +72,8 @@ class MoviesController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('admin.movies.edit', compact('movie'));
+        $casts = Cast::all();
+        return view('admin.movies.edit', compact('movie', 'casts'));
     }
 
     /**
