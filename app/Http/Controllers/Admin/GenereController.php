@@ -48,7 +48,7 @@ class GenereController extends Controller
      */
     public function show(Genere $genere)
     {
-        //
+        return view('admin.generes.show', compact('genere'));
     }
 
     /**
@@ -80,8 +80,11 @@ class GenereController extends Controller
      * @param  \App\Models\Genere  $genere
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genere $genere)
+    public function destroy(Genere $slug)
     {
-        //
+        $genere = Genere::findOrFail($slug);
+        $genere->delete();
+
+        return redirect()->route('admin.generes.index')->with('deleteMessage', $genere->genre.' Eliminato correttamente');
     }
 }
